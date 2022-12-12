@@ -36,6 +36,7 @@ exclude:
   - assets/js/jquery.min.js
   - assets/js/popper.min.js
   - assets/js/prism.min.js
+  - tmp/
   - Gemfile
   - Gemfile.lock
   - LICENSE
