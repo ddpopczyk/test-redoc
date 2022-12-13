@@ -1,32 +1,22 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy ReDoc site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  paths:
+    - open-api-spec/openapi.yml
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -36,8 +26,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
       - name: Build with ReDoc
-        # Outputs to the './_site' directory by default
-        run: npx redoc-cli build ./swagger.yml --output ./_site/index.html
+        run: npx redoc-cli build ./open-api-spec/openapi.yml --output ./_site/index.html
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v1
