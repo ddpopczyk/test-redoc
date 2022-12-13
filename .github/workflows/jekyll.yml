@@ -4,7 +4,7 @@
 # documentation.
 
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+name: Deploy ReDoc site to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -37,7 +37,7 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Build with ReDoc
         # Outputs to the './_site' directory by default
-        run: npx redoc-cli bundle ./swagger.yml --output "${{ steps.pages.outputs.base_path }}"
+        run: npx redoc-cli build ./swagger.yml --output ./_site/index.html
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v1
