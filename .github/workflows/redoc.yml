@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - open-api-spec/openapi.yml
+      - .github/workflows/redoc.yml
   workflow_dispatch:
 
 permissions:
