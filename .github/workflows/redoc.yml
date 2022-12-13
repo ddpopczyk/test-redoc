@@ -3,8 +3,8 @@ name: Deploy ReDoc site to Pages
 on:
   push:
     branches: ["main"]
-  paths:
-    - open-api-spec/openapi.yml
+    paths:
+      - open-api-spec/openapi.yml
   workflow_dispatch:
 
 permissions:
